@@ -44,7 +44,10 @@ com `componentes reativo` "sem" o uso de javascript (Existe o javascript, mas n�
 - <a href="#" target="_blank">Php `8.2`</a>
 - <a href="#" target="_blank">Laravel `9.52.5`</a>
 - <a href="#" target="_blank">Livewire `2.12`</a>
-
+- <a href="#" target="_blank">Tailwindcss `3.3.3`</a>
+    - Configuração do framework esta neste link [Install Tailwind CSS with Laravel](https://tailwindcss.com/docs/guides/laravel)
+    
+    
 ## Desenvolvimento (lógica)
 
 `View blade *calculator*`

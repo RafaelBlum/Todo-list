@@ -9,39 +9,42 @@
     <!--================== livewire style css ==================-->
     <livewire:styles />
 
+    <!--========== ICON REMIXICON ==========-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--========== VITE css app ==========-->
     @vite('resources/css/app.css')
 </head>
-<body class="bg-gray-100">
+<body class="h-14 bg-gradient-to-r from-violet-200 to-fuchsia-100">
     <div class="min-h-screen flex items-center justify-center">
-        <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
+        <div class="max-w-md w-full p-5 bg-white rounded-lg shadow-lg">
 
-            <h1 class="text-2xl font-semibold text-center text-gray-500 mt-8 mb-6">Lista de tarefas</h1>
+            <!--========== title ==========-->
+            <h1 class="text-3xl font-semibold text-center text-gray-600 mt-1 mb-1">Lista de tarefas</h1>
 
-                <livewire:todo/>
+            <!--========== call component livewire ==========-->
+            <livewire:todo/>
 
-            <hr class="my-2 border-gray-200 sm:mx-auto dark:border-gray-100 lg:my-8">
+            <!--==========  ==========-->
+            <hr class="my-1 border-gray-200 sm:mx-auto dark:border-gray-100 lg:my-4">
 
-
+            <!--==========  ==========-->
             <div class="sm:flex sm:items-center sm:justify-between">
                 <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
                     &copy; 2023 Lista de tarefas
                 </span>
                 <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                     <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600">
-                        <i class="ri-github-fill"></i>
+                        <i class="ri-github-fill text-3xl"></i>
                     </a>
                     <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600">
-                        <i class="ri-github-fill"></i>
+                        <i class="ri-github-fill text-3xl"></i>
                     </a>
                     <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600">
-                        <i class="ri-github-fill"></i>
+                        <i class="ri-github-fill text-3xl"></i>
                     </a>
                     <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600">
-                        <i class="ri-github-fill"></i>
-                    </a>
-                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600">
-                        <i class="ri-github-fill"></i>
+                        <i class="ri-github-fill text-3xl"></i>
                     </a>
                 </div>
             </div>
