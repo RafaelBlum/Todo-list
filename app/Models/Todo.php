@@ -9,4 +9,6 @@ use App\Models\Todo as ModelsTodo;
 class Todo extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['title', 'checked'];
 }

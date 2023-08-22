@@ -2,20 +2,25 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
 use App\Models\Todo as ModelsTodo;
+use Livewire\Component;
 
 class Todo extends Component
 {
+    public string $filter = 'all';
 
-    public $filter = 'all';
-    public $tot = 0;
+    protected $listeners = [
+        'todo::updated' => '$refresh',
+        'todo::created' => '$refresh',
+        'todo::deleted' => '$refresh'
+    ];
 
     public function render()
     {
-        $todos = \App\Models\Todo::query()
-            ->when($this->filter == "done", fn($q) => $q->where('checked', 1))
-            ->when($this->filter == "pending", fn($q)=>$q->where('checked', 0))
+        $todos = ModelsTodo::query()
+            ->when($this->filter == "done", fn($q) => $q->where('checked', true))
+            ->when($this->filter == "pending", fn($q)=>$q->where('checked', false))
+            ->orderBy('checked')
             ->get();
 
         return view('livewire.todo', [

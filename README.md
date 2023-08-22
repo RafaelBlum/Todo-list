@@ -23,11 +23,20 @@ com `componentes reativo` "sem" o uso de javascript (Existe o javascript, mas n�
 > Com **livewire** temos componentes responsivos e juntamente com o blade, temos uma ferramenta poderosa. Componentes que podemos atualizar sem
 >precisar atualizar toda página de forma fácil e rápida.
 
+##### Descrição de funcionalidades do `app task`
+- **listagem de todas atividades** _Criação de compoenente `todo` e busca de atividades por `query` e `when` para filtro_.
+- **Filtro das atividades por `pendentes` e `concluídas`** _Criação de propriedade `filter` com status `all, pending, done` para query `when`_.
+- **Ordenação da listagem** _Utilização de `orderBy` por `checked` de atividades_.
+- **`Check` com input da atividade concluída** _Criação de input do typo `checkbox` para concluir atividade com novo componente `item` com metodo updatedTodo da propriedade Propriedade `Todo $todo`_.
+- **Reoordenação da listagem ao check da atividade** _Utilização de `event` livewire no compoente `Item` que vai ao `salvar` fazer o `refresh` na listagem do component `Todo` pelo evento `emitTo e listeners`_.
+- **Exclusão da atividades** _ _
+- ** ** _ _
+
 ##### Instalações
 - [--] composer create-project laravel/laravel name-project
 - [--] composer require livewire/livewire
 
-##### Comandos
+## Desenvolvimento (backend lógica e comandos)
 - `php artisan serve --port=8000` [inicializando servidor] 
 - `php artisan livewire:make todo ` [Criando componente todo] 
 - `php artisan make:model Todo -m ` [Criado a tabela modelo para add propriedades] 
@@ -37,7 +46,7 @@ com `componentes reativo` "sem" o uso de javascript (Existe o javascript, mas n�
     - checked => **$this->faker->_boolean_**
     - title => **$this->faker->_sentence_**
 - `php artisan migrate --seed ` [Criado a migration de todas tabelas no banco e seed populando dados fakes] 
-
+- `php artisan livewire:make todo.item ` [Criando componente todo item] | _**A ideia é trabalhar com cada `item` em um componente separado e não no proprio componente `todo`**_
 
 ######  Tecnologias (serviços externos, libs, frameworks, hospedagem etc.)
 
@@ -48,7 +57,7 @@ com `componentes reativo` "sem" o uso de javascript (Existe o javascript, mas n�
     - Configuração do framework esta neste link [Install Tailwind CSS with Laravel](https://tailwindcss.com/docs/guides/laravel)
     
     
-## Desenvolvimento (lógica)
+## Desenvolvimento (Frontend layout e lógica)
 
 `View blade *calculator*`
 ~~~~~~view

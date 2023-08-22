@@ -8,9 +8,10 @@
 
     <!--================== livewire style css ==================-->
     <livewire:styles />
-
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
     <!--========== ICON REMIXICON ==========-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
 
     <!--========== VITE css app ==========-->
     @vite('resources/css/app.css')
@@ -20,7 +21,7 @@
         <div class="max-w-md w-full p-5 bg-white rounded-lg shadow-lg">
 
             <!--========== title ==========-->
-            <h1 class="text-3xl font-semibold text-center text-gray-600 mt-1 mb-1">Lista de tarefas</h1>
+            <h1 class="text-3xl font-bold text-center text-gray-600 mt-1 mb-1">Lista de tarefas ❤</h1>
 
             <!--========== call component livewire ==========-->
             <livewire:todo/>
@@ -53,5 +54,6 @@
 
     <!--================== livewire javascript css ==================-->
     <livewire:scripts />
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 </body>
 </html>
