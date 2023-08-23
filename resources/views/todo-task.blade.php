@@ -55,5 +55,23 @@
     <!--================== livewire javascript css ==================-->
     <livewire:scripts />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript" rel="script">
+        $('body').on('click', '[data-editable]', function () {
+           var $el = $(this);
+
+           var $input = $('<input class="text-left w-full rounded-lg border border-gray-400 p-2"/>').val($el.text());
+           $el.replaceWith($input);
+
+           var save = function(){
+               var $p = $('<p data-editable class="w-full text-sm text-grey-darkest" />').text($input.val());
+               $input.replaceWith($p);
+           }
+
+           $input.one('blur', save).focus();
+        });
+
+    </script>
 </body>
 </html>

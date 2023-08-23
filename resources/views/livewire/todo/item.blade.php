@@ -1,5 +1,7 @@
 <div class="flex mb-4 items-center">
-    <p class="w-full {{($todo->checked == true ? 'underline decoration-red-900 opacity-30' : '')}} text-sm text-grey-darkest">{{$todo->title}}</p>
+    <p id="task-{{$todo->id}}" data-editable class="w-full {{($todo->checked == true ? 'underline decoration-red-900 opacity-30' : '')}} text-sm text-grey-darkest">
+        {{$todo->title}}
+    </p>
 
     <input class="ml-4" type="checkbox" wire:model="todo.checked">
 

@@ -5,11 +5,9 @@
         wire:model.defer="title" wire:keydown.enter="save">
 
         @error('title')
-            <div class="relative flex flex-col min-w-0 break-words bg-red-100 border-0 bg-clip-border rounded-2xl mb-5 mt-3 draggable">
-                <div class="flex text-danger font-weight-light justify-center bg-transparent">
-                    {{$message}}
-                </div>
-            </div>
+            <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                {{$message}}
+            </span>
         @enderror
     </div>
 </div>
