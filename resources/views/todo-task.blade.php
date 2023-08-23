@@ -21,7 +21,11 @@
         <div class="max-w-md w-full p-5 bg-white rounded-lg shadow-lg">
 
             <!--========== title ==========-->
-            <h1 class="text-3xl font-bold text-center text-gray-600 mt-1 mb-1">Lista de tarefas ❤</h1>
+            <h1 class="text-3xl font-bold text-center text-gray-600 mt-1 mb-1 justify-center align-content-center">Lista de tarefas
+                <div class="sm:w-7 sm:h-20 h-10 w-10 sm:mr-10 inline-flex items-center justify-center flex-shrink-3">
+                    <img src="{{asset("/images/livewire_avatar.png")}}" class="animate-bounce"/>
+                </div>
+            </h1>
 
             <!--========== call component livewire ==========-->
             <livewire:todo/>
@@ -35,16 +39,16 @@
                     &copy; 2023 Lista de tarefas
                 </span>
                 <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600">
-                        <i class="ri-github-fill text-3xl"></i>
+                    <a href="https://www.youtube.com/channel/UCMvtn8HZ12Ud-sdkY5KzTog" target="_blank" class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600">
+                        <i class="ri-youtube-fill text-3xl"></i>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600">
-                        <i class="ri-github-fill text-3xl"></i>
+                    <a href="https://www.instagram.com/universo_code" target="_blank" class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600">
+                        <i class="ri-instagram-fill text-3xl"></i>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600">
-                        <i class="ri-github-fill text-3xl"></i>
+                    <a href="https://www.linkedin.com/in/rafael-blum-378656285" target="_blank" class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600">
+                        <i class="ri-linkedin-box-fill text-3xl"></i>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600">
+                    <a href="https://github.com/RafaelBlum" target="_blank" class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600">
                         <i class="ri-github-fill text-3xl"></i>
                     </a>
                 </div>

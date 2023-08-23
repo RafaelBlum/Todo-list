@@ -30,9 +30,9 @@
                 <livewire:todo.item :todo="$todo" :key="$todo->id" />
             @endforeach
         @else
-            <div class="relative flex flex-col min-w-0 break-words bg-green-300 border-0 bg-clip-border rounded-2xl mb-5 draggable">
-                <div class="px-9 pt-5 flex text-indigo-600 font-bold justify-center items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
-                    Todas metas foram concluídas!! :)
+            <div class="flex justify-center rounded-lg font-medium tracking-wide text-red-500 text-xs mt-6 mb-6">
+                <div>
+                    Não existem tarefas registradas!
                 </div>
             </div>
         @endif

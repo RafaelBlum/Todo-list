@@ -3,7 +3,7 @@
         {{$todo->title}}
     </p>
 
-    <input class="ml-4" type="checkbox" wire:model="todo.checked">
+    <input class="ml-4 accent-pink-500" type="checkbox" wire:model="todo.checked">
 
     <livewire:todo.delete :todo="$todo" :key="$todo->id .'-delete'"/>
 </div>
