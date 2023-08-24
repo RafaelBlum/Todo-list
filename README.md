@@ -61,7 +61,7 @@ com `componentes reativo` "sem" o uso de javascript (Existe o javascript, mas n�
     - checked => **$this->faker->_boolean_**
     - title => **$this->faker->_sentence_**
 - `php artisan migrate --seed ` [Criado a migration de todas tabelas no banco e seed populando dados fakes] 
-- **Criação do componentes de interação**  _**A ideia é trabalhar com cada `componente livewire` de modo separado e não no proprio componente `todo`, para assim não ter um componente com muitas responsabilidades e desta forma cada componente tera a sua.**_
+- **Criação do componentes de interação**: _A ideia é trabalhar com cada `componente livewire` de modo separado e não no proprio componente `todo`, para assim não ter um componente com muitas responsabilidades e desta forma cada componente tera a sua._
     - `php artisan livewire:make todo.item ` [Criando componente todo item] | _Componente que terá a responsabilidade de realizar o checked da atividade_.
     - `php artisan livewire:make todo.create ` [Criando componente todo create] | _Componente que terá a responsabilidade de criar componente com seu titulo_.
     - `php artisan livewire:make todo.delete ` [Criando componente todo delete] | _Componente que terá a responsabilidade de deletar a tividade_.
@@ -69,16 +69,27 @@ com `componentes reativo` "sem" o uso de javascript (Existe o javascript, mas n�
     
 ## Desenvolvimento (Frontend layout e lógica)
 
-`View blade *calculator*`
+`View blade *todo*` - listagem 
 ~~~~~~view
-<input type="text" class="values" wire:model="tot" disabled="">
-<input type="text" class="values" value="{{$math}}" placeholder="0">
+{{-- LIST TASKS --}}
+@if(count($todos) > 0)
+    @foreach($todos as $todo)
+        <livewire:todo.item :todo="$todo" :key="$todo->id" />
+    @endforeach
+@else
+    <div class="flex justify-center rounded-lg font-medium tracking-wide text-red-500 text-xs mt-6 mb-6">
+        <div>
+            Não existem tarefas registradas!
+        </div>
+    </div>
+@endif
 ~~~~~~
 
 | Diretiva | Explicação |
 | :---         |     :---      |
-| `wire:model` | *Recebe uma propriedade "tot" pública da classe do componente, e toda vez que um elemento de entrada com esta diretiva é atualizado, a propriedade sincroniza com seu valor* |
-| `wire:click` | *Escuta um evento "click" e aciona o método "math" no componente.* |
+| `@foreach($todos as $todo)` | *Recebendo a listagem com todas atividades ou por filtro no componente `todo` com um foreach para mostrar cada um.* |
+| `<livewire:todo.item :todo="$todo" :key="$todo->id" />` | *Passando cada atividade para `componente view item` e para que cada tenha sua identificação para livewire, passamos o `key` do `ID`.* |
+
 
 
 ~~~~~~

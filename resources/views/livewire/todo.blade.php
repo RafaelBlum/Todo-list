@@ -24,7 +24,7 @@
             </label>
     </div>
 
-        {{--  --}}
+        {{-- LIST TASKS --}}
         @if(count($todos) > 0)
             @foreach($todos as $todo)
                 <livewire:todo.item :todo="$todo" :key="$todo->id" />
