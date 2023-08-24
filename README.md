@@ -29,9 +29,9 @@ com `componentes reativo` "sem" o uso de javascript (Existe o javascript, mas n�
 - **Ordenação da listagem** _Utilização de `orderBy` por `checked` de atividades_.
 - **`Check` com input da atividade concluída** _Criação de input do typo `checkbox` para concluir atividade com novo componente `item` com metodo updatedTodo da propriedade Propriedade `Todo $todo`_.
 - **Reoordenação da listagem ao check da atividade** _Utilização de `event` livewire no compoente `Item` que vai ao `salvar` fazer o `refresh` na listagem do component `Todo` pelo evento `emitTo e listeners`_.
-- **Exclusão da atividade** _ _
-- **Creação de atividade** _ _
-- **No frontend:** _Layout responsivo e mode dark_.
+- **Creação de atividade** _A criação da atividade irá receber via `click` o titulo da atividade e refresh na lista `todo`_.
+- **Exclusão da atividade** _Uma deleção básica e refresh na lista `todo`_.
+- **No frontend:** _Layout responsivo e mode dark usando `Tailwindcss`_.
 
 
 <p align="center">
