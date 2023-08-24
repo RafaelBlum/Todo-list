@@ -11,10 +11,6 @@ class Create extends Component
 
     public string $title ='';
 
-    protected $messages = [
-        'title.required' => 'A descrição é obrigatória e deve ser mais que 3 letras!'
-    ];
-
     public function render()
     {
         return view('livewire.todo.create');

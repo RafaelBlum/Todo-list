@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-	<img src="https://img.shields.io/badge/version project-1.0-brightgreen" alt="version project">
+	<img src="https://img.shields.io/badge/version project-1.0-brightgreen" alt="version project todo">
     <img src="https://img.shields.io/badge/Php-8.2-informational&color=brightgreen" alt="stack project">
     <img src="https://img.shields.io/static/v1?label=Laravel&message=9.52.5&color=brightgreen?style=for-the-badge" alt="stack project">
     <img src="https://img.shields.io/static/v1?label=Livewire&message=2.12&color=brightgreen?style=for-the-badge" alt="stack project">
@@ -90,118 +90,46 @@ com `componentes reativo` "sem" o uso de javascript (Existe o javascript, mas n�
 | `@foreach($todos as $todo)` | *Recebendo a listagem com todas atividades ou por filtro no componente `todo` com um foreach para mostrar cada um.* |
 | `<livewire:todo.item :todo="$todo" :key="$todo->id" />` | *Passando cada atividade para `componente view item` e para que cada tenha sua identificação para livewire, passamos o `key` do `ID`.* |
 
+######  Exemplo 1
 
-
+`View blade *create*` - Como passar dados de input para metodo com click `Enter`.
 ~~~~~~
-<div class="first-row">
-    <input type="button" name="" wire:click="addMath('^')" value="&radic;" class="global">
-    <input type="button" name="" wire:click="addMath('(')" value="(" class="global">
-    <input type="button" name="" wire:click="addMath(')')" value=")" class="global">
-    <input type="button" name="" wire:click="addMath('%')" value="%" class="global">
-</div>
-<div class="second-row">
-    <input type="button" name="" wire:click="addMath(7)" value="7" class="global">
-    <input type="button" name="" wire:click="addMath(8)" value="8" class="global">
-    <input type="button" name="" wire:click="addMath(9)" value="9" class="global">
-    <input type="button"         wire:click="addMath('/')" name="" value="/" class="global">
-</div>
-<div class="third-row">
-    <input type="button" name="" wire:click="addMath(4)" value="4" class="global">
-    <input type="button" name="" wire:click="addMath(5)" value="5" class="global">
-    <input type="button" name="" wire:click="addMath(6)" value="6" class="global">
-    <input type="button" name="" wire:click="addMath('*')" value="X" class="global">
-</div>
-<div class="fourth-row">
-    <input type="button" name="" wire:click="addMath(1)" value="1" class="global">
-    <input type="button" name="" wire:click="addMath(2)" value="2" class="global">
-    <input type="button" name="" wire:click="addMath(3)" value="3" class="global">
-    <input type="button" name="" wire:click="addMath('-')" value="-" class="global">
-</div>
-<div class="conflict">
-    <div class="left">
-        <input type="button" name="" wire:click="addMath(0)" value="0" class="big global">
-        <input type="button" name="" wire:click="addMath('.')" value="." class="small global">
-        <input type="button" name="" wire:click="clear" value="Del" class="global red small white-text top-margin">
-        <input type="button" name="" wire:click="addMath('+')" value="+" class="global grey plus">
-    </div>
-    <div class="right">
-        <input type="button" name="" wire:click="result" value="=" class="global green white-text big top-margin result" >
-    </div>
-</div>
+<input wire:model.defer="title" wire:keydown.enter="save"
 ~~~~~~
 
-`Controller *Calculator*`
-~~~~~~Calculator
-    public $math = '';
-    public $tot = 0;
 
-    public function render()
-    {
-        return view('livewire.calculator', [
-            "title" => "Calculadora"
-        ]);
-    }
+`Controller *create*`
+~~~~~~Create
+    public string $title ='';
 
-    public function addMath($num)
+    public function save()
     {
-        $this->math .= $num;
-    }
+        $this->validate(['title' => ['required', 'min:3']],
+            [
+                'title.required' => 'Descrição é obrigatória!',
+                'title.min'=> 'Mínimo de 3 letras, por favor!'
+            ]);
 
-    public function result()
-    {
-        $this->tot = eval('return ' . $this->math . ';');
-    }
-
-    public function clear()
-    {
-        $this->math = '';
-        $this->tot = 0;
+        Todo::create(['title' => $this->title]);
+        $this->reset('title');
+        $this->emitTo(\App\Http\Livewire\Todo::class, 'todo::created');
     }
 ~~~~~~
 
-| Classe | Explicação |
+`Controller *Todo*`
+~~~~~~Create
+protected $listeners = [
+        'todo::updated' => '$refresh',
+        'todo::created' => '$refresh',
+        'todo::deleted' => '$refresh'
+];
+~~~~~~
+
+| Classe | Explicação importantes |
 | :---         |     :---      |
-| `public $math` | *As propriedades nos componentes sempre precisamos declarar como públicas* |
-| `function render` | *Metodo **render** é como se fosse um metodo construtor de uma classe Php e renderiza a view blade e podemos passar variáveis. * |
+| `validate(['title' => ['required', 'min:3']]` | * Validação de criação e mensagens personalizadas de cada tipo* |
+| `$this->emitTo` | *EmitTo é uma função que avisa um componente de alguma atividade realizada e apartir disso podemos por exemplo, realizar `refresh`* |
 
-##### Exemplos 1
-Componente de descrição em um input com reatividade. A variável `pública` no controller do componente.
-~~~~~~exemplo
-{{$description}}
-<input type="text" class="values" wire:model="description">
-~~~~~~
-
-<p align="center">
-	<a href="#" title="input-com-reatividade">
-		<img src="gifs/git-component.gif" alt="calculadora com livewire" width="150">
-	</a>
-</p>
-
-##### Exemplos 2
-Componente de botão com reatividade de somar e diminuir. wire:click acessa o metodo no controller do componente.
-~~~~~~button
-{{$number}} <br>
-<button type="button" class="values" wire:click="addPlus">Somar</button>
-<button type="button" class="values" wire:click="addMinus">Subtrair</button>
-~~~~~~
-
-~~~~~~metodos
-    public function addPlus()
-    {
-        $this->number++;
-    }
-    
-    public function addMinus()
-    {
-        $this->number--;
-    }
-~~~~~~
-
-<p align="center">
-	<a href="#" title="input-com-reatividade">
-		<img src="gifs/git-component-button.gif" alt="calculadora com livewire" width="350">
-	</a>
-</p>
 
 ## Contatos
 
