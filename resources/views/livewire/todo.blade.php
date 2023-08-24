@@ -30,7 +30,7 @@
                 <livewire:todo.item :todo="$todo" :key="$todo->id" />
             @endforeach
         @else
-            <div class="flex justify-center rounded-lg font-medium tracking-wide text-red-500 text-xs mt-6 mb-6">
+            <div class="flex justify-center rounded-lg font-medium tracking-wide text-red-500 text-xs mt-6 mb-6 dark:text-white">
                 <div>
                     Não existem tarefas registradas!
                 </div>
