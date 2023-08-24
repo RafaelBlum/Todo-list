@@ -2,7 +2,7 @@
 
 <p align="center">
 	<a href="#"  target="_blank" title="calculadora com livewire">
-		<img src="public/images/gif-todo.gif" alt="calculadora com livewire" style="border-radius: 5px;" width="400">
+		<img src="public/images/gif-todo.gif" alt="Todo list with livewire" style="border-radius: 5px;" width="500">
 	</a>
 </p>
 
@@ -24,17 +24,32 @@ com `componentes reativo` "sem" o uso de javascript (Existe o javascript, mas n�
 >precisar atualizar toda página de forma fácil e rápida.
 
 ##### Descrição de funcionalidades do `app task`
-- **listagem de todas atividades** _Criação de compoenente `todo` e busca de atividades por `query` e `when` para filtro_.
+- **listagem de todas atividades** _Criação de compoenente `todo` e busca de atividades por `query` e `when` para filtro_ e messagem de listagem vazia caso não tenha.
 - **Filtro das atividades por `pendentes` e `concluídas`** _Criação de propriedade `filter` com status `all, pending, done` para query `when`_.
 - **Ordenação da listagem** _Utilização de `orderBy` por `checked` de atividades_.
 - **`Check` com input da atividade concluída** _Criação de input do typo `checkbox` para concluir atividade com novo componente `item` com metodo updatedTodo da propriedade Propriedade `Todo $todo`_.
 - **Reoordenação da listagem ao check da atividade** _Utilização de `event` livewire no compoente `Item` que vai ao `salvar` fazer o `refresh` na listagem do component `Todo` pelo evento `emitTo e listeners`_.
-- **Exclusão da atividades** _ _
-- ** ** _ _
+- **Exclusão da atividade** _ _
+- **Creação de atividade** _ _
+- **No frontend:** _Layout responsivo e mode dark_.
 
-##### Instalações
-- [--] composer create-project laravel/laravel name-project
-- [--] composer require livewire/livewire
+
+<p align="center">
+	<a href="#"  target="_blank" title="Diagrama">
+		<img src="public/images/diagram.jpg" alt="Diagramação de componentes livewire" style="border-radius: 5px;" width="400">
+	</a>
+</p>
+
+######  Tecnologias (serviços externos, libs, frameworks, hospedagem etc.) e instalações.
+
+- <a href="#" target="_blank">Php `8.2`</a>
+- <a href="#" target="_blank">Laravel `9.52.5`</a> [Projeto laravel] composer create-project laravel/laravel name-project
+- <a href="#" target="_blank">Livewire `2.12`</a> [Livewire] composer require livewire/livewire
+- <a href="#" target="_blank">laravel debugbar `3.8`</a> [Debugbar] composer require barryvdh/laravel-debugbar --dev
+- <a href="#" target="_blank">Remixicon `2.5.0`</a> [CDN]
+- <a href="#" target="_blank">Tailwindcss `3.3.3`</a> [Tailwindcss] npm install -D tailwindcss postcss autoprefixer
+    - Configuração do framework esta neste link [Install Tailwind CSS with Laravel](https://tailwindcss.com/docs/guides/laravel)
+
 
 ## Desenvolvimento (backend lógica e comandos)
 - `php artisan serve --port=8000` [inicializando servidor] 
@@ -46,18 +61,11 @@ com `componentes reativo` "sem" o uso de javascript (Existe o javascript, mas n�
     - checked => **$this->faker->_boolean_**
     - title => **$this->faker->_sentence_**
 - `php artisan migrate --seed ` [Criado a migration de todas tabelas no banco e seed populando dados fakes] 
-- `php artisan livewire:make todo.item ` [Criando componente todo item] | _**A ideia é trabalhar com cada `item` em um componente separado e não no proprio componente `todo`**_
+- **Criação do componentes de interação**  _**A ideia é trabalhar com cada `componente livewire` de modo separado e não no proprio componente `todo`, para assim não ter um componente com muitas responsabilidades e desta forma cada componente tera a sua.**_
+    - `php artisan livewire:make todo.item ` [Criando componente todo item] | _Componente que terá a responsabilidade de realizar o checked da atividade_.
+    - `php artisan livewire:make todo.create ` [Criando componente todo create] | _Componente que terá a responsabilidade de criar componente com seu titulo_.
+    - `php artisan livewire:make todo.delete ` [Criando componente todo delete] | _Componente que terá a responsabilidade de deletar a tividade_.
 
-######  Tecnologias (serviços externos, libs, frameworks, hospedagem etc.)
-
-- <a href="#" target="_blank">Php `8.2`</a>
-- <a href="#" target="_blank">Laravel `9.52.5`</a>
-- <a href="#" target="_blank">Livewire `2.12`</a>
-- <a href="#" target="_blank">laravel debugbar `3.8`</a>
-- <a href="#" target="_blank">Remixicon `2.5.0`</a>
-- <a href="#" target="_blank">Tailwindcss `3.3.3`</a>
-    - Configuração do framework esta neste link [Install Tailwind CSS with Laravel](https://tailwindcss.com/docs/guides/laravel)
-    
     
 ## Desenvolvimento (Frontend layout e lógica)
 
