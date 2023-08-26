@@ -38,7 +38,7 @@ com `componentes reativo` "sem" o uso de javascript (Existe o javascript, mas n�
 
 <p align="center">
 	<a href="#"  target="_blank" title="Diagrama">
-		<img src="public/images/diagram.jpg" alt="Diagramação de componentes livewire" style="border-radius: 5px;" width="400">
+		<img src="public/images/diagram.jpg" alt="Diagramação de componentes livewire" style="border-radius: 5px;" width="600">
 	</a>
 </p>
 
