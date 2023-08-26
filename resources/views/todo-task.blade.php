@@ -8,7 +8,8 @@
 
     <!--================== livewire style css ==================-->
     <livewire:styles />
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+
+
     <!--========== ICON REMIXICON ==========-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
@@ -71,6 +72,8 @@
 
                 <div class="flex items-center justify-center text-center">
 
+
+
                 </div>
             </div>
         </div>
@@ -78,78 +81,7 @@
 
     <!--================== livewire javascript css ==================-->
     <livewire:scripts />
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-
-    <script>
-        const sunIcon = document.querySelector('.sun');
-        const moonIcon = document.querySelector('.moon');
-
-        const userTheme = localStorage.getItem("theme");
-        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-        console.log(sunIcon);
-        console.log(moonIcon);
-        console.log(userTheme);
-        console.log(systemTheme);
-
-        const iconToggle = () => {
-          moonIcon.classList.toggle("display-none");
-          sunIcon.classList.toggle("display-none");
-        };
-
-        const themeCheck = () => {
-            if(userTheme === 'dark' || (!userTheme && systemTheme)){
-                document.documentElement.classList.add('dark');
-                moonIcon.classList.add('display-none');
-                sunIcon.classList.remove('display-none');
-                return;
-            }
-
-            sunIcon.classList.add('display-none');
-        };
-
-        const themeSwitch = () => {
-            if(document.documentElement.classList.contains("dark")){
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem("theme", "light");
-                iconToggle();
-                return;
-            }
-
-            document.documentElement.classList.add('dark');
-            localStorage.setItem("theme", "dark");
-            iconToggle();
-        };
-
-        sunIcon.addEventListener("click", () =>{
-            themeSwitch();
-        });
-
-        moonIcon.addEventListener("click", () =>{
-            themeSwitch();
-        });
-
-        // themeCheck();
-
-    </script>
-
-    <script type="text/javascript" rel="script">
-        $('body').on('click', '[data-editable]', function () {
-           var $el = $(this);
-
-           var $input = $('<input class="text-left w-full rounded-lg border border-gray-400 p-2"/>').val($el.text());
-           $el.replaceWith($input);
-
-           var save = function(){
-               var $p = $('<p data-editable class="w-full text-sm text-grey-darkest" />').text($input.val());
-               $input.replaceWith($p);
-           }
-
-           $input.one('blur', save).focus();
-        });
-
-    </script>
+    <script rel="script" type="text/javascript" src="{{asset("src/js/alpinejs-3.min.js")}}"></script>
+    <script rel="script" type="text/javascript" src="{{asset("src/js/mod-dark.js")}}"></script>
 </body>
 </html>

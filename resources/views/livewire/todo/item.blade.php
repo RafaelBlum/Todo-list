@@ -1,9 +1,9 @@
-<div class="flex mb-4 items-center">
-    <p id="task-{{$todo->id}}" data-editable class="w-full {{($todo->checked == true ? 'underline decoration-red-900 opacity-30' : '')}} text-sm text-grey-darkest">
-        {{$todo->title}}
-    </p>
+<div class="flex mb-4 items-center justify-between">
 
-    <input class="ml-4 accent-pink-500" type="checkbox" wire:model="todo.checked">
+    <livewire:todo.title :todo="$todo"/>
+
+    <input class="ml-4 accent-pink-500 justify-end" type="checkbox" wire:model="todo.checked">
 
     <livewire:todo.delete :todo="$todo" :key="$todo->id .'-delete'"/>
 </div>
+

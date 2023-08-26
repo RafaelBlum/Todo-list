@@ -2,29 +2,19 @@
 
 namespace App\Http\Livewire\Todo;
 
-use Livewire\Component;
 use App\Models\Todo as ModelsTodo;
-use App\Http\Livewire\Todo;
+use Livewire\Component;
 
-class Item extends Component
+class Title extends Component
 {
-
     public ModelsTodo $todo;
     public string $title = '';
 
-    protected $rules = [
-        'todo.checked' => 'boolean',
-    ];
-    
     public function render()
     {
-        return view('livewire.todo.item');
+        return view('livewire.todo.title');
     }
 
-    /**
-     * updated | atualiza tudo no componente
-     * updatedTodo | atualiza component todo_
-    */
     public function updatedTodo()
     {
         $this->todo->save();
@@ -34,6 +24,12 @@ class Item extends Component
 
     public function saveTitle()
     {
+        $this->validate(['title' => ['required', 'min:3']],
+            [
+                'title.required' => 'Descrição é obrigatória!',
+                'title.min'=> 'Mínimo de 3 letras!'
+            ]);
+
         $this->todo->title = $this->title;
         $this->todo->save();
 
