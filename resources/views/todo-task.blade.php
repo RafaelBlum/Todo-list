@@ -6,20 +6,19 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!--================== livewire style css ==================-->
+    {{-- livewire style css --}}
     <livewire:styles />
 
-
-    <!--========== ICON REMIXICON ==========-->
+    {{-- ICON REMIXICON --}}
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
-    <!--========== VITE css app ==========-->
+    {{-- VITE css app --}}
     @vite('resources/css/app.css')
 </head>
 <body>
 
 
-    <!--================== TODO_ TASK - LIGTH MOD body => bg-gradient-to-r from-violet-200 to-fuchsia-100 | dark mod card =>bg-black opacity-80 ==================-->
+    {{-- TODO_ TASK --}}
     <div class='flex items-center justify-center border-violet-500/25 min-h-screen bg-indigo-300 dark:bg-gray-700 dark:text-white'>
         <div class='w-full max-w-lg px-5 py-4 mx-auto bg-white rounded-lg shadow-xl dark:bg-gray-500'>
 
@@ -40,13 +39,12 @@
 
                         </h1>
 
-
-                        <!--========== call component livewire ==========-->
+                        {{-- call component livewire --}}
                         <livewire:todo/>
 
-                        <!--==========  ==========-->
                         <hr class="my-1 border-gray-200 sm:mx-auto dark:border-gray-100 lg:my-4">
-                        <!--==========  ==========-->
+
+                        {{-- footer --}}
                         <div class="sm:flex sm:items-center sm:justify-between dark:text-white">
                                 <span class="text-sm text-gray-500 sm:text-center dark:text-white">
                                     &copy; 2023 Lista de tarefas
@@ -70,6 +68,7 @@
                 </div>
 
 
+                {{-- sub footer --}}
                 <div class="flex items-center justify-center text-center">
 
 
@@ -79,7 +78,7 @@
         </div>
     </div>
 
-    <!--================== livewire javascript css ==================-->
+    {{-- livewire javascript css --}}
     <livewire:scripts />
     <script rel="script" type="text/javascript" src="{{asset("src/js/alpinejs-3.min.js")}}"></script>
     <script rel="script" type="text/javascript" src="{{asset("src/js/mod-dark.js")}}"></script>

@@ -8,7 +8,7 @@ use Livewire\Component;
 class Title extends Component
 {
     public ModelsTodo $todo;
-    public string $title = '';
+    public string $title = "";
 
     public function render()
     {

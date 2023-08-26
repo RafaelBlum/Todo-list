@@ -2,7 +2,7 @@
 
 <p align="center">
 	<a href="#"  target="_blank" title="calculadora com livewire">
-		<img src="public/images/gif-todo.gif" alt="Todo list with livewire" style="border-radius: 5px;" width="500">
+		<img src="public/images/gif-todo-2.gif" alt="Todo list with livewire" style="border-radius: 5px;" width="500">
 	</a>
 </p>
 

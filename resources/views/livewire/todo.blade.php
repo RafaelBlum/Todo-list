@@ -1,12 +1,10 @@
 <div>
-    {{--  --}}
-    <!--========== Input task ==========-->
+    {{-- Input task | CREATE --}}
     <div class="mb-4">
         <livewire:todo.create/>
     </div>
 
-    {{--  --}}
-    <!--========== Filter ==========-->
+    {{-- Filter --}}
     <div class="sm:flex mt-2 mb-2 sm:items-center sm:justify-center text-sm text-stone-500 dark:text-white">
             <label for="filter_all" class="mr-3">
                 <input type="radio" id="filter_all" name="filter" wire:model="filter" value="all">
