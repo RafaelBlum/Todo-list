@@ -12,7 +12,8 @@ class Todo extends Component
     protected $listeners = [
         'todo::updated' => '$refresh',
         'todo::created' => '$refresh',
-        'todo::deleted' => '$refresh'
+        'todo::deleted' => '$refresh',
+        'todo::updatedTitle' => '$refresh'
     ];
 
     public function render()

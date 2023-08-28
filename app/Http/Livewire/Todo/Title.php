@@ -33,6 +33,6 @@ class Title extends Component
         $this->todo->title = $this->title;
         $this->todo->save();
 
-        $this->emitTo(\App\Http\Livewire\Todo::class, 'todo::updated');
+        $this->emitTo(\App\Http\Livewire\Todo::class, 'todo::updatedTitle');
     }
 }

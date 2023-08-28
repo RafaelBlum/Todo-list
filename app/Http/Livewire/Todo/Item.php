@@ -31,12 +31,4 @@ class Item extends Component
 
         $this->emitTo(\App\Http\Livewire\Todo::class, 'todo::updated');
     }
-
-    public function saveTitle()
-    {
-        $this->todo->title = $this->title;
-        $this->todo->save();
-
-        $this->emitTo(\App\Http\Livewire\Todo::class, 'todo::updated');
-    }
 }
