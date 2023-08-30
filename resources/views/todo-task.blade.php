@@ -27,48 +27,56 @@
     {{-- VITE css app --}}
     @vite('resources/css/app.css')
 </head>
+<body>
+    <div class="bg-indigo-600 min-h-screen pt-12 md:pt-20 pb-6 px-2 md:px-0 dark:bg-gray-700 dark:text-white" style="font-family:'Lato',sans-serif;">
 
-<body class="body-bg min-h-screen pt-12 md:pt-20 pb-6 px-2 md:px-0" style="font-family:'Lato',sans-serif;">
+        {{--  --}}
+        <header class="max-w-lg mx-auto dark:bg-gray-700">
+            <a href="#">
+                <h1 class="text-4xl font-bold text-white text-center">Lista de tarefas</h1>
+            </a>
+        </header>
 
-{{--  --}}
-<header class="max-w-lg mx-auto">
-    <a href="#">
-        <h1 class="text-4xl font-bold text-white text-center">Lista de tarefas</h1>
-    </a>
-</header>
+        {{-- TODO_CONTENT --}}
+        {{-- call component livewire --}}
+        <main class="bg-white max-w-lg mx-auto p-2 md:p-8 my-10 rounded-lg shadow-2xl dark:bg-gray-400">
 
-{{-- TODO_CONTENT --}}
-{{-- call component livewire --}}
-<main class="bg-white max-w-lg mx-auto p-2 md:p-8 my-10 rounded-lg shadow-2xl">
-    <livewire:todo/>
-</main>
-{{--  --}}
-<div class="max-w-lg mx-auto text-center mt-12 mb-6">
-    <p class="text-white"> &copy; {{date('Y')}} Lista de tarefas by <a href="https://www.linkedin.com/in/rafael-blum-378656285" target="_blank" class="font-bold hover:underline">Rafael Blum</a>.</p>
-</div>
+            {{-- DARK MOD --}}
+            <div class="flex flex-row-reverse text-3xl float-right">
+                <i class="sun ri-sun-line display-none cursor-pointer"></i>
+                <i class="moon ri-sun-cloudy-fill cursor-pointer"></i>
+            </div>
 
-{{--  --}}
-<footer class="max-w-lg mx-auto flex justify-center text-white">
-    <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-        <a href="https://www.youtube.com/channel/UCMvtn8HZ12Ud-sdkY5KzTog" target="_blank" class="hover:text-gray-900 dark:text-white">
-            <i class="ri-youtube-fill text-3xl"></i>
-        </a>
-        <a href="https://www.instagram.com/universo_code" target="_blank" class="hover:text-gray-900 dark:text-white">
-            <i class="ri-instagram-fill text-3xl"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/rafael-blum-378656285" target="_blank" class="hover:text-gray-900 dark:text-white">
-            <i class="ri-linkedin-box-fill text-3xl"></i>
-        </a>
-        <a href="https://github.com/RafaelBlum" target="_blank" class="hover:text-gray-900 dark:text-white">
-            <i class="ri-github-fill text-3xl"></i>
-        </a>
+            <livewire:todo/>
+        </main>
+        {{--  --}}
+        <div class="max-w-lg mx-auto text-center mt-12 mb-6">
+            <p class="text-white"> &copy; {{date('Y')}} Lista de tarefas by <a href="https://www.linkedin.com/in/rafael-blum-378656285" target="_blank" class="font-bold hover:underline">Rafael Blum</a>.</p>
+        </div>
+
+        {{--  --}}
+        <footer class="max-w-lg mx-auto flex justify-center text-white">
+            <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+                <a href="https://www.youtube.com/channel/UCMvtn8HZ12Ud-sdkY5KzTog" target="_blank" class="hover:text-gray-900 dark:text-white">
+                    <i class="ri-youtube-fill text-3xl"></i>
+                </a>
+                <a href="https://www.instagram.com/universo_code" target="_blank" class="hover:text-gray-900 dark:text-white">
+                    <i class="ri-instagram-fill text-3xl"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/rafael-blum-378656285" target="_blank" class="hover:text-gray-900 dark:text-white">
+                    <i class="ri-linkedin-box-fill text-3xl"></i>
+                </a>
+                <a href="https://github.com/RafaelBlum" target="_blank" class="hover:text-gray-900 dark:text-white">
+                    <i class="ri-github-fill text-3xl"></i>
+                </a>
+            </div>
+        </footer>
+
+        {{-- livewire javascript css --}}
+        <livewire:scripts />
+
+        <script rel="script" type="text/javascript" src="{{asset("src/js/alpinejs-3.min.js")}}"></script>
+        <script rel="script" type="text/javascript" src="{{asset("src/js/mod-dark.js")}}"></script>
     </div>
-</footer>
-
-{{-- livewire javascript css --}}
-<livewire:scripts />
-
-<script rel="script" type="text/javascript" src="{{asset("src/js/alpinejs-3.min.js")}}"></script>
-<script rel="script" type="text/javascript" src="{{asset("src/js/mod-dark.js")}}"></script>
 </body>
 </html>

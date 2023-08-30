@@ -22,11 +22,15 @@
 {{-- title|edit --}}
 <div x-data="{ open: false }" class="flex-auto flex-col text-base font-semibold text-slate-900">
 
-    <p x-on:click="open = true" id="task-{{$todo->id}}" class="w-full text-lg text-sky-400 text-bold relative flex
-                {{($todo->checked ? 'underline text-red-900 opacity-30 dark:text-white' : '')}}">
-        {{$todo->title}}
-    </p>
-
+    @if($todo->checked)
+        <p x-on:click="open = true" id="task-{{$todo->id}}" class="w-full text-lg text-gray-800text-bold relative flex underline text-red-900 opacity-30 dark:text-white">
+            {{\Illuminate\Support\Str::upper($todo->title)}}
+        </p>
+    @else
+        <p x-on:click="open = true" id="task-{{$todo->id}}" class="w-full text-lg text-red-500 text-bold relative flex">
+            {{\Illuminate\Support\Str::upper($todo->title)}}
+        </p>
+    @endif
 
     <ul x-show="open" @click.away="open = false" class="flex flex-row flex-wrap p-1 justify-between md:justify-between content-center">
         <li class="flex-auto">

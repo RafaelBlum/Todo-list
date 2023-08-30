@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(\App\Models\User::class)->nullable();
             $table->boolean("checked")->default(false);
             $table->string("title");
             $table->timestamps();

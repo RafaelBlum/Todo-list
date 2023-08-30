@@ -18,5 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function (){
-    return view('login');
+    return view('layouts/login');
+});
+
+Route::get('/novo', function (){
+    return view('layouts/dashboard');
 });

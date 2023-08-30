@@ -33,7 +33,7 @@
             <div class="w-full text-sm font-medium text-slate-700">
                 <div class="space-x-2 flex text-sm">
                     <div class="flex flex-wrap">
-                        User | {{date('d/m/Y', strtotime($todo->created_at))}}
+                        {{$todo->user->name}} | {{date('d/m/Y', strtotime($todo->created_at))}}
                     </div>
                 </div>
             </div>
