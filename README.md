@@ -18,7 +18,7 @@
 	</a>
 </p>
 
-## Projeto Todo task 
+## Projeto Todo task v.2.0
 Este é uma `aplicação Laravel` utilizando a "extensão" `Livewire`. Uma extensão reativa, que agiliza o desenvolvimento
 com `componentes reativo` "sem" o uso de javascript (Existe o javascript, mas não precisamos se preocupar com  desenvolvimento).
 
@@ -35,6 +35,12 @@ com `componentes reativo` "sem" o uso de javascript (Existe o javascript, mas n�
 - **Exclusão da atividade** _Uma deleção básica e refresh na lista `todo`_.
 - **No frontend:** _Layout responsivo e mode dark usando `Tailwindcss`_.
 
+
+##### Descrição de funcionalidades do `app task` para a versão 2.0
+- **Autenticação de usuário** _ _.
+- **Usuários só podem criar, editar e deletar se estiverem logados** _ _.
+- **Usuário só pode editar e deletar se a atividade for dele** _ _.
+- **** _ _.
 
 <p align="center">
 	<a href="#"  target="_blank" title="Diagrama">

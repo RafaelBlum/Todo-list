@@ -4,11 +4,6 @@ const moonIcon = document.querySelector('.moon');
 const userTheme = localStorage.getItem("theme");
 const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-console.log(sunIcon);
-console.log(moonIcon);
-console.log(userTheme);
-console.log(systemTheme);
-
 const iconToggle = () => {
     moonIcon.classList.toggle("display-none");
     sunIcon.classList.toggle("display-none");

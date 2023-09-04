@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Todo;
 
 use App\Models\Todo;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 
@@ -24,8 +25,23 @@ class Create extends Component
                 'title.min'=> 'Mínimo de 3 letras, por favor!'
             ]);
 
-        Todo::create(['title' => $this->title]);
-        $this->reset('title');
-        $this->emitTo(\App\Http\Livewire\Todo::class, 'todo::created');
+        if(\auth()->user()){
+
+
+            Todo::create(['title' => $this->title, 'user_id'=> \auth()->id()]);
+
+            $this->reset('title');
+            $this->emitTo(\App\Http\Livewire\Todo::class, 'todo::created');
+
+            $this->emit('notifications', [
+                'type'      => 'success',
+                'message'   => 'Atividade criada com sucesso!!'
+            ]);
+        }
+
+        $this->emit('notifications', [
+            'type'      => 'error',
+            'message'   => 'Você precisa se logar para criar atividade'
+        ]);
     }
 }

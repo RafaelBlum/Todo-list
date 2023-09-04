@@ -10,7 +10,7 @@ class Todo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'checked'];
+    protected $fillable = ['title', 'checked', 'user_id'];
 
     public function user(){
         return $this->belongsTo(User::class);

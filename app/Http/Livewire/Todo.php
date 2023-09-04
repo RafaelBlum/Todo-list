@@ -3,16 +3,31 @@
 namespace App\Http\Livewire;
 
 use App\Models\Todo as ModelsTodo;
+use http\QueryString;
 use Livewire\Component;
 
 /**
  * @property-read int $all
+ * @property-read int $pending
+ * @property-read int $done
 */
 class Todo extends Component
 {
     public string $filter = 'all';
-    protected $queryString = ['filter'];
 
+    /**
+     * variable add filter url
+     *
+    */
+    protected $queryString = ['filter'=> ['except'=> 'all']];
+
+
+    /**
+     * Event Listeners
+     * Os listeners são um par [chave => valor]
+     *  - Onde a chave é o evento a ser escutado;
+     *  - E o valor é o método a ser chamado no componente;
+    */
     protected $listeners = [
         'todo::updated' => '$refresh',
         'todo::created' => '$refresh',
