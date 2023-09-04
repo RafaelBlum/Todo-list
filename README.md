@@ -11,12 +11,14 @@
     <img src="https://img.shields.io/badge/Php-8.2-informational&color=brightgreen" alt="stack project">
     <img src="https://img.shields.io/static/v1?label=Laravel&message=9.52.5&color=brightgreen?style=for-the-badge" alt="stack project">
     <img src="https://img.shields.io/static/v1?label=Livewire&message=2.12&color=brightgreen?style=for-the-badge" alt="stack project">
-    <img src="https://img.shields.io/static/v1?label=Tailwindcss&message=3.3.3&color=orangeblack?style=for-the-badge" alt="stack project">
-    <img src="https://img.shields.io/static/v1?label=AlpineJs&message=2.8.2&color=brightgreen?style=for-the-badge" alt="stack project">
-    <img src="https://img.shields.io/static/v1?label=Remixicon&message=2.5.0&color=brightgreen?style=for-the-badge" alt="stack project">
 	<a href="https://opensource.org/licenses/GPL-3.0">
 		<img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GPLv3 License">
 	</a>
+</p>
+<p align="center">
+    <img src="https://img.shields.io/static/v1?label=Tailwindcss&message=3.3.3&color=brightgreen?style=for-the-badge" alt="stack project">
+    <img src="https://img.shields.io/static/v1?label=AlpineJs&message=2.8.2&color=brightgreen?style=for-the-badge" alt="stack project">
+    <img src="https://img.shields.io/static/v1?label=Remixicon&message=2.5.0&color=brightgreen?style=for-the-badge" alt="stack project">
 </p>
 
 ## Projeto Todo task v.2.0
@@ -37,7 +39,11 @@ com `componentes reativo` "sem" o uso de javascript (Existe o javascript, mas n�
 - **No frontend:** _Layout responsivo e mode dark usando `Tailwindcss`_.
 
 
-##### Descrição de funcionalidades do `app task` para a versão 2.0
+##### Descrição de funcionalidades do `app task` para a versão `2.0`.
+Na versão 2.0 do app, além do `layout novo`, foi adicionado `propriedades computadas` do livewire, `autorizações` de usuários 
+para suas atividades, `autenticação` básica de login/logout para demonstração do que um usuário pode visualizar e interagir no app e por 
+fim `notificações` para cada ação.
+
 - **Autenticação de usuário** _ _.
 - **Usuários só podem criar, editar e deletar se estiverem logados** _ _.
 - **Usuário só pode editar e deletar se a atividade for dele** _ _.
