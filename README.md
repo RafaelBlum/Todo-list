@@ -44,14 +44,16 @@ Na versão 2.0 do app, além do `layout novo`, foi adicionado `propriedades comp
 para suas atividades, `autenticação` básica de login/logout para demonstração do que um usuário pode visualizar e interagir no app e por 
 fim `notificações` para cada ação.
 
-- **Autenticação de usuário** _ _.
-- **Usuários só podem criar, editar e deletar se estiverem logados** _ _.
-- **Usuário só pode editar e deletar se a atividade for dele** _ _.
-- **** _ _.
+- **Autenticação de usuário** _Criação demonstrativa de usuário direto pelo id_.
+- **Politicas de Autenticação de usuário** _Usuários só podem criar, editar e deletar se estiverem logados_.
+- **Autorização de ações** _Usuário não pode visualizar a deleção da atividade se a atividade não foi criada por ele_.
+- **Negação de ações** _Usuário não pode editar atividade que não foi criada por ele_.
+- **Notificações** _Criar notificações na tela para ações_.
+- **Parametros da url** _Criar parametros nos filtro da URL para um histórico na navegação_.
 
 <p align="center">
 	<a href="#"  target="_blank" title="Diagrama">
-		<img src="public/images/diagram.jpg" alt="Diagramação de componentes livewire" style="border-radius: 5px;" width="600">
+		<img src="public/images/diagram-2.jpg" alt="Diagramação de componentes livewire" style="border-radius: 5px;" width="600">
 	</a>
 </p>
 

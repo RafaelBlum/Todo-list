@@ -9,15 +9,15 @@
         <div class="sm:flex mt-1 mb-0 sm:items-center sm:justify-center text-sm text-stone-600 dark:text-white dark:bg-gray-400">
             <label for="filter_all mr-3">
                 <input type="radio" id="filter_all" name="filter" wire:model="filter" value="all" />
-                <span class="mr-3">({{$this->all}}) All</span>
+                <span class="mr-3">({{$this->all}}) Todos</span>
             </label>
             <label for="filter_pending">
                 <input type="radio" id="filter_pending" name="filter" wire:model="filter" value="pending" />
-                <span class="mr-3">({{$this->pending}}) Pending</span>
+                <span class="mr-3">({{$this->pending}}) Pendentes</span>
             </label>
             <label for="filter_done">
                 <input type="radio" id="filter_done" name="filter" wire:model="filter" value="done" />
-                <span>({{$this->done}}) Done</span>
+                <span>({{$this->done}}) Concluídas</span>
             </label>
         </div>
     </section>
