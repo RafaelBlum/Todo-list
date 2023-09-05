@@ -64,10 +64,10 @@ fim `notificações` para cada ação.
 - <a href="#" target="_blank">Laravel `9.52.5`</a> [Projeto laravel] composer create-project laravel/laravel name-project
 - <a href="#" target="_blank">Livewire `2.12`</a> [Livewire] composer require livewire/livewire
 - <a href="#" target="_blank">laravel debugbar `3.8`</a> [Debugbar] composer require barryvdh/laravel-debugbar --dev
-- <a href="#" target="_blank">Remixicon `2.5.0`</a> [CDN]
+- <a href="#" target="_blank">Remixicon `2.5.0`</a> [Docs](https://remixicon.com/)
 - <a href="#" target="_blank">Tailwindcss `3.3.3`</a> [Tailwindcss] npm install -D tailwindcss postcss autoprefixer
     - Configuração do framework esta neste link [Install Tailwind CSS with Laravel](https://tailwindcss.com/docs/guides/laravel)
-
+- <a href="#" target="_blank">Alpine jS `2.8.2`</a> [Docs](https://github.com/alpinejs/alpine/tree/v2.8.2)
 
 ## Desenvolvimento (backend lógica e comandos)
 - `php artisan serve --port=8000` [inicializando servidor] 
@@ -147,6 +147,123 @@ protected $listeners = [
 | :---         |     :---      |
 | `validate(['title' => ['required', 'min:3']]` | * Validação de criação e mensagens personalizadas de cada tipo* |
 | `$this->emitTo` | *EmitTo é uma função que avisa um componente de alguma atividade realizada e apartir disso podemos por exemplo, realizar `refresh`* |
+
+
+
+## Desenvolvimento para versão 2.0
+- Estruturação de `migrate` e `model` da Todo.
+    - Adição da foreignId `$table->foreignIdFor(\App\Models\User::class)->nullable();`
+    - Adição da fillable user id `protected $fillable = ['title', 'checked', 'user_id']`
+    - Metodo belongsTo da Todo pegar o usuário dono.
+~~~~~~belongsTo
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+~~~~~~    
+    
+- Criação de `factories e seeders` para popular banco.
+    - Exemplo
+~~~~~~public function run()
+    User::updateOrCreate([
+        'name'=> 'Rafael Blum',
+        'email'=> 'Rafaelblum_digital@hotmail.com',
+        'email_verified_at' => now(),
+        'password'=> Hash::make('123'),
+        'remember_token' => Str::random(10),
+    ]);
+
+
+    User::updateOrCreate([
+        'name' => fake()->name(),
+        'email' => fake()->unique()->safeEmail(),
+        'email_verified_at' => now(),
+        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'remember_token' => Str::random(10),
+    ]);
+
+    Todo::updateOrCreate([
+        'checked' => fake()->boolean,
+        'user_id' => User::where('email', 'Rafaelblum_digital@hotmail.com')->first()->id,
+        'title' => fake()->sentence
+    ]);
+~~~~~~    
+
+- Criação de politica todo.
+    - `php artisan make:policy TodoPolicy --model=Todo ` [Criando politica] | _Cria a policy e com o `--model=Todo` cria todos metodos_.
+    
+- A criação de `notificações` seram acessados direto pelo componente que irá `iniciar um evento` e assendo as props de componente do blade.
+~~~~~~componente livewire
+    $this->emit('notifications', [
+        'type'      => 'error',
+        'message'   => 'Você precisa se logar para criar atividade'
+    ]);
+~~~~~~
+- Metodo da classe Notifications
+~~~~~~componente livewire
+    protected $listeners = ['notifications'=>'notify'];
+
+    public function notify($props)
+    {
+        $this->message = $props['message'];
+        $this->type = $props['type'];
+    }
+~~~~~~
+- view livewire e componente x-blade
+~~~~~~componente livewire
+<x-notification :type="$type">
+    {!! $message !!}
+</x-notification>
+
+~~~~~~
+
+~~~~~~componente blade e props
+@props([
+    'type'
+])
+
+
+<div {{$attributes->class([
+    'w-80 text-center text-sm mb-2 font-semibold tracking-wide cursor-pointer',
+    'text-yellow-500' => $type == 'warning',
+    'text-red-500' => $type == 'error',
+    'text-green-500' => $type == 'success',
+    'text-indigo-500' => $type == 'info',
+])}} >
+    {{$slot}}
+</div>
+~~~~~~
+
+- Autorizações de ações. 
+    - Atraves da Politica criada da todo, cada metodo ira retornar e verificar se o user id do user logado é igual ao id do user_id da tabela Todo.
+    - `return $user->is($todo->user);` 
+    - Na classe Delete, por exemplo.
+    
+~~~~~~AuthorizesRequests;
+    use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+    use AuthorizesRequests;
+    $this->authorize('delete', $this->todo);
+~~~~~~
+
+- Outra forma de autorização é utilizando o `can()`
+
+~~~~~~can()
+    if(!auth()->check() || !auth()->user()->can('update', $this->todo)){
+        $this->emit('notifications', [
+            'type'      => "error",
+            'message'   => "Você não pode finalizar a atividade <br> {$this->todo->title}"
+        ]);
+
+        return;
+    }
+~~~~~~
+
+- Nas views podemos também usar o @can()
+    - Aqui se não é sua atividade, você não terá acesso a visualização do componente.
+~~~~~~can()
+    @can('update', $todo)
+        ...
+    @endcan
+~~~~~~
 
 
 ## Contatos
