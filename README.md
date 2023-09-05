@@ -1,8 +1,15 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
+
+<p align="left">
 	<a href="#"  target="_blank" title="calculadora com livewire">
-		<img src="public/images/gif-todo-2.gif" alt="Todo list with livewire" style="border-radius: 5px;" width="500">
+		<img src="public/images/gif-todo-2.gif" alt="Todo list with livewire" style="border-radius: 5px;" width="300">
+	</a>
+</p>
+
+<p align="rigth">
+	<a href="#"  target="_blank" title="calculadora com livewire">
+		<img src="public/images/gif-todo-2.gif" alt="Todo list with livewire" style="border-radius: 5px;" width="300">
 	</a>
 </p>
 
