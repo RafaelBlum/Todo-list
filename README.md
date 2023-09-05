@@ -3,7 +3,7 @@
 
 <p align="center">
 	<a href="#"  target="_blank" title="calculadora com livewire">
-		<img src="public/images/gif-todo-3.gif" alt="Todo list with livewire" width="600">
+		<img src="public/images/gif-todo-3.gif" alt="Todo list with livewire" width="100%">
 	</a>
 </p>
 
